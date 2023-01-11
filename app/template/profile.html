@@ -1,0 +1,44 @@
+<div class="col-12">
+
+    <div style="text-align: right" ng-if="me.fullname != selectedUser.fullname">
+        <div ng-if="!alreadyFollowing">
+            <button class="btn btn-success post-button" ng-click="follow()">Follow</button>
+        </div>
+        <div ng-if="alreadyFollowing">
+            <button class="btn btn-success post-button" style="alignment: center" ng-click="unfollow()">Unfollow
+            </button>
+        </div>
+    </div>
+
+
+    <div class="profile-info">
+        <img class="profile-avatar" ng-src="{{'/account' + selectedUser.avatar}}">
+        <span style="text-align: justify-all"> <b>{{selectedUser.fullname}}</b>
+            <div style="font-size: 16px">Post: {{selectedProfile.length}}   Followers: {{followers.length}}   Following: {{following.length}} </div>
+        <div style="font-size: 16px">Birth Date: {{selectedUser.birthDate |  date:'dd-MMM-yyyy'}}</div></span>
+    </div>
+
+
+    <div class="flex-container">
+        <div ng-repeat="photo in selectedProfile">
+            <div>
+                <div>
+                    <img ng-src="/account/{{photo.path}}" width="300px" height="300px">
+                    <div><b>{{photo.username}}</b> {{photo.caption}}
+                        <span ng-if="me.fullname == selectedUser.fullname">
+                            <i class="fa fa-trash hand" aria-hidden="true" data-ng-click="delete(photo)"></i>
+                        </span>
+                        <div>{{photo.date | timeago}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--
+
+
+-->

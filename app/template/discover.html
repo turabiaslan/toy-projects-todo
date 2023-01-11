@@ -1,0 +1,37 @@
+<h1 style="text-align: center">Phinstagram</h1>
+<div class="flex-container" >
+    <div ng-repeat="photo in discoverPhotos">
+        <div>
+            <div ng-click=" profile(photo)" class="hand">
+                <img class="home-avatar" ng-src="{{'/account' + photo.avatar}}">
+                <span> <b>{{photo.username}}</b></span>
+            </div>
+            <div>
+                <img ng-src="/account/{{photo.path}}" width="300px" height="300px">
+                <div><b>{{photo.username}}</b> {{photo.caption}}
+                    <div>{{photo.date | timeago}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+    <div class="row" ng-repeat="chunk in discoverPhotos">
+        <div class="col-md-6" ng-repeat="photo in chunk">
+            <div data-ng-click="profile(photo)" class="hand text-center">
+                <div class="home-text">
+                    <img class="home-avatar" ng-src="{{'/account' + photo.avatar}}">
+                    <span> <b>{{photo.username}}</b></span>
+                </div>
+                <img ng-src="/account/{{photo.path}}" width="200" height="200">
+                <div class="home-text"><b>{{photo.username}}</b> {{photo.caption}}
+                    <div>{{photo.date | timeago}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+-->
+
+

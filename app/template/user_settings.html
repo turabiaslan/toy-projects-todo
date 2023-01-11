@@ -1,0 +1,42 @@
+<div class="text-center">
+    <form class="w-50" style="display: inline-block" novalidate="novalidate">
+        <div class="form-outline mb-3">
+            <input type="text" id="nameId" class="form-control" ng-model="me.userSettings.fullname" autocomplete="off"/>
+            <label class="form-label" for="nameId">Name Surname</label>
+        </div>
+
+        <div class="mb-5">
+            <div class="dropdown">
+                <a class="btn" href="#" role="button" id="dropdown1"
+                   data-bs-toggle="dropdown" aria-expanded="true">
+                    <div class="input-group">
+                        <input type="datetime-local" id="date" class="form-control"
+                               value="{{me.userSettings.birthDate | date:'yyyy-MM-dd'}}">
+                        <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-calendar"></i></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <datetimepicker ng-model="me.userSettings.birthDate" name="systemDate"
+                                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="avatar" class="form-label, hand">Avatar</label>
+            <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'"
+                 ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Select
+            </div>
+            <div id="avatar" class="form-text">Please enter avatar image.</div>
+        </div>
+
+
+        <!--Submit button -->
+        <!--Register button -->
+
+        <button type="button" class="btn btn-primary btn-block mb-4" ng-click="save()">Submit</button>
+
+
+    </form>
+</div>

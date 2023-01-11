@@ -1,0 +1,184 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+.header-item:hover{
+    background-color: blueviolet;
+    border: 1px solid #d0d0d0;
+    color: white;
+}
+.home-avatar{
+    width: 40px;
+    height: 40px;
+
+}
+.profile-avatar{
+    width: 80px;
+    height: 80px;
+    margin:auto;
+    text-align: center;
+
+}
+.plus-icon{
+   text-align: center;
+    vertical-align: center;
+}
+.post-button{
+    background-color: #7066e0;
+    font-size: 16px;
+    color: white;
+    border: none;
+    text-align: center;
+}
+.profile-info{
+    font-size: 40px;
+    margin-left: 198px;
+    margin-bottom: 20px;
+}
+
+.flex-container{
+    display: flex;
+    width: 900px !important;
+    height: 390px;
+    alignment: center;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+    margin:auto;
+}
+.container-flex > div {
+    margin: 10px;
+    padding: 10px;
+}
+
+.home-main{
+    text-align: center  !important;
+    padding-bottom: 10px;
+}
+.home-text{
+    width: 500px;
+    height: 40px;
+    col-md-3: offset-md-3;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.discover-text{
+    margin: 0 auto;
+    text-align: left;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.fnt-bold {
+    font-weight: bold;
+}
+
+.fnt-color {
+    color: black;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+.read-mail {
+    background-color: #ccc !important;
+    color: black !important;
+    font-weight: bold !important;
+}
+
+.bucket {
+    width: 100px;
+    height: 60px;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding-top: 20px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.file {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    width: 150px;
+}
+
+.file p {
+    font-size: 48px;
+}
+
+.file span {
+    font-size: 24px;
+}
+
+a.file-link {
+    color: #333;
+    text-decoration: none;
+}
+
+.delete-icon {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.left-menu {
+    background-color: #f3f2f1;
+    font-family: "Segoe UI Web (West European)", Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+}
+.cell-spacing{
+    padding-left: 12px;
+}
+
+.left-menu-item {
+    cursor: pointer;
+    padding: 10px 0px 10px 50px;
+}
+
+.left-menu-item.selected {
+    font-weight: bold;
+    background-color: #C7E0F4 !important;
+}
+
+.left-menu-item:hover {
+    background-color: #edebe9;
+
+}
+
+.mail-from-subject{
+    font-size: 16px;
+}
+.mail-body-summary{
+    font-size: 14px;
+    padding-left: 0;
+}
+.read-mail-subject{
+    font-size: 45px;
+    padding-left: 10px;
+}
+.read-mail-from{
+    font-size: 20px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+.read-mail-rest{
+    font-size: 20px;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+

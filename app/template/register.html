@@ -1,0 +1,57 @@
+<div class="text-center">
+    <form class="w-50" style="display: inline-block" novalidate="novalidate">
+        <div class="form-outline mb-4">
+            <!--Username Input -->
+            <input type="text" id="usernameFormId" class="form-control" ng-model="regist.mailAddress"
+                   autocomplete="off"/>
+            <label class="form-label" for="usernameFormId">Username</label>
+        </div>
+        <!--Password Input-->
+        <div class="form-outline mb-4">
+            <input type="password" id="passwordFormId" class="form-control" ng-model="regist.password"
+                   autocomplete="off"/>
+            <label class="form-label" for="passwordFormId">Password</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input type="text" id="nameId" class="form-control" ng-model="regist.fullname" autocomplete="off"/>
+            <label class="form-label" for="nameId">Full Name</label>
+        </div>
+
+        <div class="dropdown">
+            <a class="btn" href="#" role="button" id="dropdownMenuLink"
+               data-bs-toggle="dropdown" aria-expanded="true">
+                <div class="input-group">
+                    <input type="text" id="date" class="form-control"
+                           value="{{ regist.birthDate | date:'dd.MM.yyyy'}}">
+                    <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-calendar"></i></span>
+                </div>
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <datetimepicker ng-model="regist.birthDate" name="systemDate"
+                                data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"></datetimepicker>
+            </ul>
+        </div>
+
+
+        <div class="mx-auto">
+            <label for="avatar" class="form-label, hand">Avatar</label>
+            <div>
+                <button class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                        ngf-accept="'image/*'"
+                        ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}"><b>Select</b>
+
+                </button>
+            </div>
+
+        </div>
+
+
+        <!--Submit button -->
+        <!--Register button -->
+
+        <button type="button" class="btn btn-primary btn-block mt-4" ng-click="register()">Register</button>
+
+
+    </form>
+</div>

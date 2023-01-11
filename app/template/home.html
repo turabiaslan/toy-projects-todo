@@ -1,0 +1,22 @@
+<div class="col-12">
+
+    <h1 style="text-align: center">Phinstagram</h1>
+
+    <div class=".col-md-6 .offset-md-3 home-main" ng-repeat="photo in feed">
+
+        <div data-ng-click="profile(photo)" class="hand text-center">
+            <div class="home-text">
+                <img class="home-avatar" ng-src="{{'/account' + photo.avatar}}">
+                <span> <b>{{photo.username}}</b></span>
+            </div>
+            <img ng-src="/account/{{photo.path}}" width="500px" height="500px">
+            <div class="home-text"> <b>{{photo.username}}</b> {{photo.caption}}
+                <div>{{photo.date | timeago}}</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

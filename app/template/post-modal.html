@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">New Post</h3>
+</div>
+<div class="modal-body" id="modal-body">
+
+  <form novalidate="novalidate">
+
+    <div class="mb-3">
+      <div class="btn btn-default" ngf-select ng-model="file" name="file"
+           ngf-max-size="20MB" ngf-min-height="100">Select
+      </div>
+      <div id="avatarHelp" class="form-text">Please enter media</div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label">Caption</label>
+      <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp"
+             autocomplete="off"
+             ng-model="photo.caption">
+      <div id="firstNameHelp" class="form-text">Please enter first name.</div>
+    </div>
+
+  </form>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
