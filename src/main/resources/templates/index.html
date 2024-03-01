@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo Application</title>
+
+
+    <base href="/">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+          integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet"
+          href="/3rd/toastr/toastr.min.css"/>
+
+    <link rel="stylesheet"
+          href="/3rd/datepicker/css/datetimepicker.css"/>
+    <link rel="stylesheet" href="/3rd/swal/sweetalert2.min.css"/>
+
+    <link href="/app/css/styles.css"
+          rel="stylesheet"/>
+    <script th:inline="javascript">
+        let current_user = /*[[${session.session_user}]]*/;
+    </script>
+
+</head>
+<body ng-app="toDoApp" ng-cloak>
+
+
+<div class="container" ng-controller="HeaderController">
+
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+           ng-if="isLoggedIn">
+            <img class="img-thumbnail" src="/user/{{me.avatar}}" style="height: 40px">
+            <span class="fs-4">Welcome {{me.name}} </span>
+        </a>
+
+        <a href="/login"
+           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+           ng-if="!isLoggedIn">
+            <span class="fs-4">ToDo App</span>
+        </a>
+
+        <div style="padding-top: 8px" ng-if="isLoggedIn">
+            <input type="text" placeholder="Search.." style="margin-right: 8px" ng-model="param" ng-Enter="search(param)">
+        </div>
+
+        <ul class="nav nav-pills" style="" ng-if="isLoggedIn">
+
+            <li class="nav-item" style="padding-top: 9px; color: #030303"><i class="fa-solid fa-square-plus fa-xl  nav-link plus-icon" ng-click="open()"></i>
+            </li>
+            <li class="nav-item" style="color:#030303"><a href="/today" class="nav-link" ng-class="{'active': selected == 'HOME'}"
+                                    ng-click="select('HOME')" aria-current="page">Home</a></li>
+            <li class="nav-item" style="color:#030303"><a href="/profile" class="nav-link"
+                                    ng-class="{'active': selected == 'PRO'}" ng-click="select('PRO')">Profile</a>
+            </li>
+            <li class="nav-item" style="color:#030303"><a href="#" class="nav-link" ng-click="logout()">Logout</a></li>
+        </ul>
+    </header>
+
+    <div class="row">
+        <div class="col-2 left-menu" ng-if="isLoggedIn">
+            <div role="tree">
+                <div class="left-menu-item" ng-class="{'selected': selected == 'today'}"
+                     ng-click="navigate('today')">
+                    <span><i class="fa-solid fa-sun"></i> My Day</span>
+                </div>
+                <div class="left-menu-item" ng-class="{'selected': selected == 'starred'}"
+                     ng-click="navigate('starred')">
+                    <span><i class="fa-solid fa-star"></i> Starred</span>
+                </div>
+                <div class="left-menu-item" ng-class="{'selected': selected == 'month'}" ng-click="navigate('month')">
+                    <span><i class="fa-solid fa-moon"></i> Month</span>
+                </div>
+                <div class="left-menu-item" ng-class="{'selected': selected == 'planned'}"
+                     ng-click="navigate('planned')">
+                    <span><i class="fa-solid fa-calendar-day"></i> Planned</span>
+                </div>
+                <div class="left-menu-item" ng-class="{'selected': selected == 'completed'}"
+                     ng-click="navigate('completed')">
+                    <span><i class="fa-solid fa-check"></i> Completed</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-10">
+            <div ng-view="" class="col"></div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/js/bootstrap.bundle.min.js"
+        integrity="sha512-9GacT4119eY3AcosfWtHMsT5JyZudrexyEVzTBWV3viP/YfB9e2pEy3N7WXL3SV6ASXpTU0vzzSxsbfsuUH4sQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Angular Dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+        integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"
+        integrity="sha512-y1qD3hz/IAf8W4+/UMLZ+CN6LIoUGi7srWJ3r1R17Hid8x0yXe+1B5ZelkaL1Mjzedzu0Cg3HBvDG02SAgSzBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.8.3/angular-resource.min.js"
+        integrity="sha512-+ymw+FkoDhPw+7/1DWVtASoICv7lwuvpkbVFqc4ASu1D385wKiLHu4ofOOxhpTlWoza/yIivwwteembPbeBuMg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<!-- 3rd party dependencies -->
+<script src="/3rd/js/lodash.js"></script>
+<script src="/3rd/toastr/toastr.min.js"></script>
+<script src="/3rd/js/ui-bootstrap-tpls-3.0.6.min.js"></script>
+<script src="/3rd/js/moment-with-locales.min.js"></script>
+<script src="/3rd/datepicker/js/datetimepicker.js"></script>
+<script src="/3rd/datepicker/js/datetimepicker.templates.js"></script>
+<script src="/3rd/js/ng-file-upload-all.min.js"></script>
+<script src="/3rd/swal/sweetalert2.all.min.js"></script>
+
+
+<!-- Application Javascsript Files -->
+<script src="/app/js/app.module.js"></script>
+<script src="/app/js/login.component.js"></script>
+<script src="/app/js/register.component.js"></script>
+<script src="/app/js/profile.component.js"></script>
+<script src="/app/js/home.component.js"></script>
+<script src="/app/js/search.component.js"></script>
+</body>
+</html>

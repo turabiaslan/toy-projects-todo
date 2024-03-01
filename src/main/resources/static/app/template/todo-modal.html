@@ -1,0 +1,66 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">New Todo</h3>
+</div>
+<div class="modal-body" id="modal-body">
+
+    <form novalidate="novalidate">
+
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" aria-describedby="titleHelp"
+                   autocomplete="off"
+                   ng-model="todo.title">
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" aria-describedby="locationHelp"
+                   autocomplete="off"
+                   ng-model="todo.location">
+        </div>
+
+        <div class="mb-5">
+            <div class="dropdown">
+                <a class="btn" href="#" role="button" id="dropdown1"
+                   data-bs-toggle="dropdown" aria-expanded="true">
+                    <div class="input-group">
+                        <input type="text" id="date" class="form-control" placeholder="yyyy-MM-dd hh:mm" value="{{todo.start}}">
+                        <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-calendar"></i></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <datetimepicker ng-model="todo.start" name="systemDate"
+                                    data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"></datetimepicker>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="notes" class="form-label">Notes</label>
+            <input type="text" class="form-control" id="notes" aria-describedby="firstNameHelp"
+                   autocomplete="off"
+                   ng-model="todo.notes">
+        </div>
+
+        <div>
+            <label for="priority">Choose priority:</label>
+            <select ng-model="todo.priority" id="priority" name="priority">
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="checkbox" ng-model="todo.flagged" id="flagged" name="scales">
+            <label for="flagged">Starred</label>
+        </div>
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

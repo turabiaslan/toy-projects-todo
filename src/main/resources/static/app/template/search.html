@@ -1,0 +1,15 @@
+
+<div ng-repeat="todo in todos">
+    <span >
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="completed" ng-model="todo.completed" ng-change="markAsCompleted(todo)">
+           <span>
+               <span style="font-size: 18px"><b>{{todo.title}}</b></span>
+               <span>{{todo.notes}}</span>
+               <div>{{todo.start | date:'dd-MMM  hh:mm'}}
+               <div> <b>Priority </b>: {{todo.priority}}</div></div>
+           </span>
+        </div>
+
+    </span>
+</div>

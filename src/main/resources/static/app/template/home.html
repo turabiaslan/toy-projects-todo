@@ -1,0 +1,22 @@
+
+    <h3 ng-if="headControl() == 0"><i class="fa-solid fa-sun"></i> My Day</h3>
+    <h3 ng-if="headControl() == 1"><i class="fa-solid fa-star"></i> Starred</h3>
+    <h3 ng-if="headControl() == 2"><i class="fa-solid fa-month"></i> Month</h3>
+    <h3 ng-if="headControl() == 3"><i class="fa-solid fa-calendar-day"></i> Planned</h3>
+    <h3 ng-if="headControl() == 4"><i class="fa-solid fa-check"></i> Completed</h3>
+
+    <div ng-repeat="todo in todos">
+    <span>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="completed" ng-model="todo.completed"
+                   ng-change="markAsCompleted(todo)">
+           <span>
+               <span style="font-size: 18px"><b>{{todo.title}}</b></span>
+               <span>{{todo.notes}}</span>
+               <div>{{todo.start | date:'dd-MMM  hh:mm'}}
+               <div> <b>Priority </b>: {{todo.priority}}</div></div>
+           </span>
+        </div>
+
+    </span>
+</div>
